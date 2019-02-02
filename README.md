@@ -9,6 +9,16 @@
 
 Sushi is the compliment to my other project ["EGTR"](https://github.com/M4cs/EGTR-Futurestore). It is a program that offers a GUI and ease of use along with extra features to TSSChecker. It works on all **Windows and MacOS** platforms. Once a Linux binary has been compiled I will release it for that as well. I named this Sushi because SHSH looks kind of like Sushi so fuck it.
 
+## Usage:
+
+### Saving Blobs:
+
+At the moment Sushi saved every signed blob available for your device. I'm not sure why but I don't see it as an issue so I'm not going to bother trying to change it. If you still want to make sure you get a specific version you can input a Version otherwise just enter your ECID, Device Model, and Boardconfig (not needed for most devices but makes it easier). Once you have all input field set press start and refer to your terminal for output. The blobs should save in your ./download/ folder within the Sushi directory.
+
+### Checking Signed Firmware:
+
+Sushi also comes with a feature to check what firmwares are still signed for your device. To do so click the "Status" button and enter your Device Model. This will run a search and display any signed firmware's available for your device. This will also show what firmwares will be saved when saving blobs.
+
 ## Getting Started:
 
 ### Requirements:
