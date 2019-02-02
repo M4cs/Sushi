@@ -44,7 +44,7 @@ There are a few requirements you need in order to get Sushi working perfectly. I
 - Python 3+
 - Pip for Python3
 
-### Installation:
+### Installation for Windows:
 
 Once you have these programs installed run the following commands:
 
@@ -55,9 +55,17 @@ pip3 install -r requirements.txt
 python3 sushi.py
 ```
 
-If you're on linux you will need to compile the dependencies.
-After that run these commands for installation:
+**IF YOU ARE IN macOS:**
 
+Enter the same commands for Windows but don't run sushi.py yet after you have entered these commands:
+```
+cd download
+chmod 744 tsschecker
+```
+**NOTE**:Change 744 to 770 if you want all users to use it instead of only the current user 
+
+### Installation for Linux:
+You will need to compile the dependencies. After that run these commands for installation:
 ```
 apt-get install libusb-1.0-0 libcurl3-gnutls
 git clone https://github.com/electimon/Sushi.git Sushi
