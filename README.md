@@ -1,5 +1,6 @@
 <p align='center'>
   <h1 align="center">Sushi | Cross-Platform GUI for TSSChecker</h1>
+  <a href=""><img src="https://image.prntscr.com/image/EQlC-Ph1SLSRjV7BVGGAKA.png"></a>
 </p>
 
 ## About Sushi:
