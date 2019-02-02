@@ -15,19 +15,22 @@ def downloadTSSChecker():
     elif PLATFORM == 'darwin':
         name = '/tsschecker'
         dl_url = MAC_DOWN_LINK
+    elif PLATFORM == 'linux' or PLATFORM == 'linux1' or PLATFORM == 'linux2':
+        name = '/tsschecker'
+        dl_url = LIN_DOWN_LINK
     r = requests.get(dl_url, allow_redirects=True)
     open(DOWN_DIR + '/tsschecker.zip', 'wb').write(r.content)
     zip_ref = zipfile.ZipFile(DOWN_DIR + '/tsschecker.zip', 'r')
     zip_ref.extractall(DOWN_DIR)
     zip_ref.close()
     os.remove(getRealPath(DOWN_DIR + '/tsschecker.zip'))
-    if PLATFORM == 'darwin':
-        os.chmod(getRealPath(DOWN_DIR + name), '+x')
+    if PLATFORM == 'darwin' or PLATFORM == 'linux' or PLATFORM == 'linux1' or PLATFORM == 'linux2':
+        os.chmod(getRealPath(DOWN_DIR + name), 0o755)
 
 def checkTSSChecker():
     if PLATFORM == 'win32' or PLATFORM == 'win64':
         name = '/tsschecker.exe'
-    elif PLATFORM == 'darwin':
+    elif PLATFORM == 'darwin' or PLATFORM == 'linux' or PLATFORM == 'linux1' or PLATFORM == 'linux2':
         name = '/tsschecker'
     if os.path.exists(getRealPath(DOWN_DIR + name)) == True:
         return True
@@ -46,7 +49,8 @@ def checkConfig():
 
 def getSignedFirmwares(identifier):
     headers = {'Accept':'application/json'}
-    api = f'https://api.ipsw.me/v4/device/{identifier}?type=ipsw'
+    api = "https://api.ipsw.me/v4/device/" + str(identifier) + "?type=ipsw"
+    print(api)
     r = requests.get(str(api), headers=headers).text
     obj = json.loads(r)
     signed = ''
@@ -61,12 +65,14 @@ def getSignedFirmwares(identifier):
 def saveBlobs(ecid, devId, boardconfig, version, latest):
     if PLATFORM == 'win32' or PLATFORM == 'win64':
         name = '/tsschecker.exe'
-    elif PLATFORM == 'darwin':
+    elif PLATFORM == 'darwin' or PLATFORM == 'linux' or PLATFORM == 'linux1' or PLATFORM == 'linux2':
         name = '/tsschecker'
     if version != '':
-        query = [str(getRealPath(DOWN_DIR + name)),'-s','-i',version,'-e',ecid,'-d',devId,'-B',boardconfig]
+        query = str(getRealPath(DOWN_DIR + name)) + ' ' + '-s ' + '-i ' + version + ' -e' + ecid + ' -d ' + devId + ' -B ' + ' ' + boardconfig
+        print(query)
     elif version == '':
-        query = [str(getRealPath(DOWN_DIR + name)),'-s','-e',ecid,'-d',devId,'-B',boardconfig,latest]
+        query = str(getRealPath(DOWN_DIR + name)) + ' -s ' + '-e ' + ecid + ' -d ' + devId + ' -B ' + boardconfig + ' ' + latest
+        print(query)
     proc = subprocess.Popen(query, stdout=subprocess.PIPE, shell=True)
     out = proc.communicate()[0]
     return out.decode("utf-8")

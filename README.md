@@ -7,6 +7,14 @@
 
 ## Changelog:
 
+### 1.0.2~beta:
+
+- Fixed some execution bugs
+- Switch from f-strings to concatenation for those on Python 3.5 and lower
+- Added checks for Linux
+- Fixed binary execution marking
+
+
 ### 1.0.1~beta:
 
 - Fixed some bugs
@@ -33,7 +41,7 @@ Sushi also comes with a feature to check what firmwares are still signed for you
 There are a few requirements you need in order to get Sushi working perfectly. In order to get started, make sure you have the following programs installed:
 
 - git
-- Python 3.6+
+- Python 3+
 - Pip for Python3
 
 ### Installation:
@@ -42,6 +50,17 @@ Once you have these programs installed run the following commands:
 
 ```
 git clone https://github.com/M4cs/Sushi.git Sushi
+cd Sushi
+pip3 install -r requirements.txt
+python3 sushi.py
+```
+
+If you're on linux you will need to compile the dependencies.
+After that run these commands for installation:
+
+```
+apt-get install libusb-1.0-0 libcurl3-gnutls
+git clone https://github.com/electimon/Sushi.git Sushi
 cd Sushi
 pip3 install -r requirements.txt
 python3 sushi.py
