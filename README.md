@@ -13,7 +13,7 @@ Sushi is the compliment to my other project ["EGTR"](https://github.com/M4cs/EGT
 
 ### Saving Blobs:
 
-At the moment Sushi saved every signed blob available for your device. I'm not sure why but I don't see it as an issue so I'm not going to bother trying to change it. If you still want to make sure you get a specific version you can input a Version otherwise just enter your ECID, Device Model, and Boardconfig (not needed for most devices but makes it easier). Once you have all input field set press start and refer to your terminal for output. The blobs should save in your ./download/ folder within the Sushi directory.
+To save your blobs input a version to save or choose latest version then, just enter your ECID, Device Model, and Boardconfig (not needed for most devices but makes it easier). Once you have all input field set press start and refer to your terminal for output. The blobs should save in your ./download/ folder within the Sushi directory.
 
 ### Checking Signed Firmware:
 
