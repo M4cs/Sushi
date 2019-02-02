@@ -24,7 +24,7 @@ def mainScreen():
         ecid = 'None - Enter ECID'
         config_loaded = False
         boardconfig = 'None - Enter Boardconfig'
-    version = '1.0.1~beta'
+    version = '1.0.2~beta'
     col1 = [
         [p.T('Enter Device Identifier:', justification='center')],
         [p.Input(model, do_not_clear=True, key='_ID_')]
