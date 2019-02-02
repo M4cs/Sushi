@@ -2,11 +2,11 @@
   <h1 align="center">Sushi | Cross-Platform GUI for TSSChecker</h1>
 </p>
 
-# About Sushi:
+## About Sushi:
 
 Sushi is the compliment to my other project ["EGTR"](https://github.com/M4cs/EGTR-Futurestore). It is a program that offers a GUI and ease of use along with extra features to TSSChecker. It works on all **Windows and MacOS** platforms. Once a Linux binary has been compiled I will release it for that as well. I named this Sushi because SHSH looks kind of like Sushi so fuck it.
 
-# Getting Started:
+## Getting Started:
 
 There are a few requirements you need in order to get Sushi working perfectly. In order to get started, make sure you have the following programs installed:
 
