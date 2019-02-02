@@ -2,6 +2,7 @@ from settings import *
 import requests
 import zipfile
 import json
+import subprocess
 
 def getRealPath(oldpath):
     real_path = os.path.realpath(oldpath)
@@ -58,13 +59,14 @@ def getSignedFirmwares(identifier):
     return signed
 
 def saveBlobs(ecid, devId, boardconfig, version, latest):
-    try:
-        if PLATFORM == 'win32' or PLATFORM == 'win64':
-            name = '/tsschecker.exe'
-        elif PLATFORM == 'darwin':
-            name = '/tsschecker'
-        query = str(getRealPath(DOWN_DIR + name)) + ' -s' + version + ' -e ' + ecid + ' -d ' + devId + ' -B ' + boardconfig + latest + '--save-path {}'.format(DOWN_DIR)
-        os.system(query)
-        return True
-    except:
-        return False
+    if PLATFORM == 'win32' or PLATFORM == 'win64':
+        name = '/tsschecker.exe'
+    elif PLATFORM == 'darwin':
+        name = '/tsschecker'
+    if version != '':
+        query = [str(getRealPath(DOWN_DIR + name)),'-s','-i',version,'-e',ecid,'-d',devId,'-B',boardconfig]
+    elif version == '':
+        query = [str(getRealPath(DOWN_DIR + name)),'-s','-e',ecid,'-d',devId,'-B',boardconfig,latest]
+    proc = subprocess.Popen(query, stdout=subprocess.PIPE, shell=True)
+    out = proc.communicate()[0]
+    return out.decode("utf-8")

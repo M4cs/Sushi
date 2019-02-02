@@ -1,0 +1,4 @@
+*.shsh2
+download/*.exe
+config/config.ini
+__pycache__/

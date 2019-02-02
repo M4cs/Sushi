@@ -24,7 +24,7 @@ def mainScreen():
         ecid = 'None - Enter ECID'
         config_loaded = False
         boardconfig = 'None - Enter Boardconfig'
-    version = '1.0.0~beta'
+    version = '1.0.1~beta'
     col1 = [
         [p.T('Enter Device Identifier:', justification='center')],
         [p.Input(model, do_not_clear=True, key='_ID_')]
@@ -66,18 +66,17 @@ def mainScreen():
             boardconfig = values['_BOARDCONF_']
             ecid = values['_ECID_']
             if values['_LATEST_'] == True:
-                latest = ' -l '
+                latest = '-l'
                 version = ''
             elif values['_LATEST_'] == False:
                 latest = ''
-                version = ' -i ' + values['_VER_']
-            saveBlobs(ecid, devId, boardconfig, version, latest)
-            finishedPopup(devId, ecid)
+                version = values['_VER_']
+            finishedPopup(devId, ecid, boardconfig, version, latest)
             if os.path.exists(CONF_PATH) == False:
                 configMenu(ecid, devId, boardconfig)
         elif event == '_LOGO_':
             webbrowser.open_new_tab('https://github.com/M4cs/Sushi')
-        elif event == '_TWITTER_':
+        elif event == '_TWITTER_': 
             webbrowser.open_new_tab('https://twitter.com/maxbridgland')
 
 
@@ -160,8 +159,15 @@ def configMenu(ecid, devId, boardconfig):
             break
     window.Close()    
 
-def finishedPopup(devId, ecid):
+def finishedPopup(devId, ecid, boardconfig, version, latest):
+    output = saveBlobs(ecid, devId, boardconfig, version, latest)
     layout = [
-        [p.T(f'Finished Saving Blobs For: {devId} with ECID: {ecid}\nCheck the downloads folder for your SHSH2 blobs!', justification='center')]
+        [p.MultilineOutput(str(output), background_color='#000000', text_color='#ffffff', key='_OUTPUT_', do_not_clear=True, size=(1000, 500))],
+        [p.Image(data_base64=Images.close_b, key='Close', click_submits=True)]
     ]
-    window = p.Window('Finished', auto_close=True, keep_on_top=True, grab_anywhere=True, auto_close_duration=2, no_titlebar=True).Layout(layout).Read()
+    window = p.Window('Finished', keep_on_top=True, grab_anywhere=True, no_titlebar=True).Layout(layout)
+    while True:
+        event, values = window.Read()
+        if event == 'Close':
+            window.Close()
+            break
