@@ -1,5 +1,5 @@
 <p align='center'>
-  <h1>Sushi | Cross-Platform GUI for TSSChecker</h1>
+  <h1 align="center">Sushi | Cross-Platform GUI for TSSChecker</h1>
 </p>
 
 # About Sushi:
