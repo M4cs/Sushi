@@ -1,2 +1,3 @@
-# Sushi
-Sushi | GUI for TSSChecker Written In Python
+<p align='center'>
+  <b>Sushi | Cross-Platform GUI for TSSChecker</b>
+</p>
