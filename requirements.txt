@@ -1,0 +1,4 @@
+PySide2
+PyQt5
+configparser
+requests
