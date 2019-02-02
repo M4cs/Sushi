@@ -5,6 +5,13 @@
   <h1 align="center">Sushi | Cross-Platform GUI for TSSChecker</h1>
 </p>
 
+## Changelog:
+
+### 1.0.1~beta:
+
+- Fixed some bugs
+- Switched from os.system() to subprocess.check_output() in order to output logs to a window instead of using terminal to see reuslts. ***Testing only on Windows, no clue if MacOS works but it should.***
+
 ## About Sushi:
 
 Sushi is the compliment to my other project ["EGTR"](https://github.com/M4cs/EGTR-Futurestore). It is a program that offers a GUI and ease of use along with extra features to TSSChecker. It works on all **Windows and MacOS** platforms. Once a Linux binary has been compiled I will release it for that as well. I named this Sushi because SHSH looks kind of like Sushi so fuck it.
