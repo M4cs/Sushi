@@ -1,8 +1,8 @@
 
-<p align="center">
+<p align="center"><center>
   <h1 align="center">Sushi | Cross-Platform GUI for TSSChecker</h1>
   <a align="center"><img align="center" src="https://image.prntscr.com/image/EQlC-Ph1SLSRjV7BVGGAKA.png" alt="screenshot"></a>
-</p>
+</p></center>
 
 ## About Sushi:
 
