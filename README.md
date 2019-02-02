@@ -55,7 +55,8 @@ pip3 install -r requirements.txt
 python3 sushi.py
 ```
 
-If you're on linux run these following commands:
+If you're on linux you will need to compile the dependencies.
+After that run these commands for installation:
 
 ```
 apt-get install libusb-1.0-0 libcurl3-gnutls
